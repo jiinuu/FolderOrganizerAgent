@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Folder Organizer Agent</title>
+  <link rel="stylesheet" href="./renderer.css" />
+</head>
+<body>
+  <main class="app">
+    <header>
+      <h1>Folder Organizer Agent</h1>
+      <p>비개발자를 위한 로컬 폴더 자동 정리 도구</p>
+    </header>
+
+    <section id="simplePanel" class="panel hidden">
+      <h2>빠른 시작</h2>
+      <p>저장된 설정으로 바로 실행합니다.</p>
+      <div class="actions">
+        <button id="quickStartBtn" class="primary big">빠른 시작</button>
+        <button id="openWizardBtn">설정 변경</button>
+        <button id="stopBtn" class="danger">중지</button>
+      </div>
+      <div class="actions">
+        <span id="status">상태: 대기</span>
+      </div>
+    </section>
+
+    <section id="wizardPanel" class="panel hidden">
+      <h2>초기 설정 마법사 (3단계)</h2>
+
+      <h3>1) 정리 대상 폴더 선택</h3>
+      <div class="row">
+        <input id="watchRoot" placeholder="예: C:\\Users\\me\\Downloads" />
+        <button id="pickWatch">폴더 선택</button>
+      </div>
+
+      <h3>2) 정리 결과 폴더 선택</h3>
+      <div class="row">
+        <input id="organizedRoot" placeholder="비워두면 자동: 대상 폴더와 같은 위치에 A_organized_by_agent" />
+        <button id="pickOrganized">폴더 선택</button>
+      </div>
+
+      <div id="dropZone" class="dropZone">
+        폴더를 드래그해서 넣어도 됩니다 (첫 번째=대상, 두 번째=결과)
+      </div>
+
+      <h3>3) 실행 옵션</h3>
+      <div class="opts">
+        <label><input id="autoStart" type="checkbox" /> 앱 시작 시 자동 시작</label>
+        <label><input id="dryRun" type="checkbox" /> 이동 없이 시뮬레이션(dry-run)</label>
+        <label><input id="logEachMove" type="checkbox" /> 파일별 로그 자세히 보기</label>
+      </div>
+
+      <div class="actions">
+        <button id="saveBtn">설정만 저장</button>
+        <button id="startBtn" class="primary">저장 후 시작</button>
+        <button id="backSimpleBtn" class="hidden">빠른 시작 화면으로</button>
+      </div>
+      <div class="actions">
+        <span id="wizardHint">처음 한 번만 설정하면 다음부터는 빠른 시작만 누르면 됩니다.</span>
+      </div>
+    </section>
+
+    <section class="panel">
+      <h2>실행 로그</h2>
+      <pre id="logs" class="logs"></pre>
+    </section>
+  </main>
+
+  <script src="./renderer.js"></script>
+</body>
+</html>

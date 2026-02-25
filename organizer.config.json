@@ -1,0 +1,27 @@
+{
+  "watchRoot": "./watch_inbox",
+  "organizedRoot": "./organized",
+  "scanIntervalMs": 5000,
+  "settleMs": 4000,
+  "dryRun": true,
+  "unknownFolder": "_unsorted",
+  "rules": {
+    "extensionMap": {
+      ".jpg": "images",
+      ".jpeg": "images",
+      ".png": "images",
+      ".gif": "images",
+      ".mp4": "videos",
+      ".mov": "videos",
+      ".pdf": "documents",
+      ".docx": "documents",
+      ".xlsx": "documents",
+      ".zip": "archives"
+    },
+    "keywordMap": {
+      "invoice": "finance/invoices",
+      "receipt": "finance/receipts",
+      "resume": "career/resume"
+    }
+  }
+}

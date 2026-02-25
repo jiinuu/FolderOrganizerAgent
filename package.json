@@ -1,0 +1,42 @@
+{
+  "name": "local-folder-organizer-agent",
+  "version": "1.0.0",
+  "private": true,
+  "description": "비개발자를 위한 로컬 폴더 자동 정리 에이전트 (GUI + Drag&Drop)",
+  "main": "desktop/main.js",
+  "scripts": {
+    "desktop": "electron .",
+    "build:win": "electron-builder --win nsis"
+  },
+  "devDependencies": {
+    "electron": "^33.2.0",
+    "electron-builder": "^25.1.8"
+  },
+  "build": {
+    "appId": "com.wlsdn.folderorganizer",
+    "productName": "Folder Organizer Agent",
+    "directories": {
+      "output": "dist"
+    },
+    "files": [
+      "desktop/**/*",
+      "folder-organizer-agent.js",
+      "organizer.config.example.json",
+      "README.md",
+      "package.json"
+    ],
+    "win": {
+      
+      "target": [
+        "nsis"
+      ]
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "shortcutName": "Folder Organizer Agent",
+      "createDesktopShortcut": "always",
+      "createStartMenuShortcut": true
+    }
+  }
+}
